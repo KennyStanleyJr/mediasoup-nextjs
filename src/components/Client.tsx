@@ -1,10 +1,8 @@
 import * as mediasoup from 'mediasoup-client'
-import socketClient from 'socket.io-client'
-import socketPromise from '../lib/socket.io-promise'
 import config from '../lib/config'
-import { useSocket, ISocket } from '../contexts/SocketProvider'
+import { useSocket } from '../contexts/SocketProvider'
 
-import { useRef, useState, useEffect, useCallback, useReducer } from 'react'
+import { useRef, useEffect, useCallback, useReducer } from 'react'
 
 function reducer(state: any, action: any) {
     switch (action.type) {
