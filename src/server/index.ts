@@ -79,18 +79,10 @@ async function runSocketServer() {
     socketServer.on('connection', (socket: io.Socket) => {
         console.log('client connected');
 
-        // inform the client about existence of producer
-        if (producer) {
-            socket.emit('newProducer');
-        }
-
         socket.on('join', () => {
-            socket.emit('joined')
+            console.log('join requested')
+            socket.emit('join-accepted')
         })
-
-        socket.on('disconnect', () => {
-            console.log('client disconnected');
-        });
 
         socket.on('connect_error', (err) => {
             console.error('client connection error', err);
