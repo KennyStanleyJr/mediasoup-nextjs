@@ -1,1 +1,1 @@
-# mediasoup-typescript-sample-app
+# mediasoup-nextjs
