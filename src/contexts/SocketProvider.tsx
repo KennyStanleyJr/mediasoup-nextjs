@@ -4,7 +4,8 @@ import { io, Socket } from 'socket.io-client'
 export interface ISocket extends Socket {
     request?: any
 }
-
+       
+// Adds promise support for socketio
 function socketPromise(socket: ISocket) {
     return function request(type: string, data = {}) {
         return new Promise(resolve => {
@@ -15,7 +16,7 @@ function socketPromise(socket: ISocket) {
 
 export interface ISocketProviderInput {
     endpoint: string
-    token: string
+    token?: string
     children?: any
 }
 
@@ -45,6 +46,7 @@ export function SocketProvider({
             // reconnectionDelayMax: 5000,
             // reconnectionAttempts: Infinity,
         })
+
 
         newSocket.request = socketPromise(newSocket)
 
